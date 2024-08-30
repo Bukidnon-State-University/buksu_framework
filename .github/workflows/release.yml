@@ -1,0 +1,43 @@
+name: Build, Test, and Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-test-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel pylint
+        pip install -r buksu_framework/requirements.txt
+        pip install -e .[dev]
+
+    - name: Run linter
+      run: pylint **/*.py
+
+    - name: Run tests
+      run: |
+        pytest
+
+    - name: Build package
+      run: |
+        python setup.py sdist bdist_wheel
+
+    - name: Upload to GitHub Release
+      uses: actions/upload-artifact@v2
+      with:
+        name: buksu_framework
+        path: dist/*
