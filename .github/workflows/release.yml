@@ -41,9 +41,11 @@ jobs:
       run: |
         cd buksu_framework
         python setup.py sdist bdist_wheel
+        cd ..
 
     - name: Upload to GitHub Release
       uses: actions/upload-artifact@v2
       with:
         name: buksu_framework
-        path: dist/*
+        path: buksu_framework/dist/*
+        if-no-files-found: error
