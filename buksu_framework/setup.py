@@ -17,7 +17,8 @@ setup(
     author='Kid Mediante',
     author_email='kram@buksu.edu.ph',
     description='A framework for BukSU API integration',
-    long_description='Provides a comprehensive set of tools and services for interacting with BukSU APIs, including authentication, user management, notifications, and media handling.',
+    long_description='Provides a comprehensive set of tools and services for interacting with BukSU APIs, including '
+                     'authentication, user management, notifications, and media handling.',
     url='https://github.com/buksu/buksu_framework',
     classifiers=[
         'Development Status :: 3 - Alpha',

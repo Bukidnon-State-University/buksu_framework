@@ -1,6 +1,7 @@
 from unittest.mock import patch
 
 import pytest
+
 from buksu_framework.services.uas import UserAuthService
 
 

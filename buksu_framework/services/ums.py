@@ -13,5 +13,5 @@ class UserMediaService(BaseService, CRUDMixin):
     service = "ums"
     global_params = {"storage": "local"}
 
-    def update(self, id, data, params=None):
-        return super().update(id, data=data, params=params)
+    def update(self, media_id, data=None, params=None):
+        return super().update(media_id, data=data, params=params)

@@ -1,6 +1,7 @@
 from unittest.mock import patch, Mock
 
 import pytest
+
 from buksu_framework.api_client import APIClientBase, StandardAPIClient
 
 

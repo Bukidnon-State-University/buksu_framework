@@ -1,6 +1,7 @@
 from unittest.mock import patch
 
 import pytest
+
 from buksu_framework.base import BaseService
 from buksu_framework.mixins import CRUDMixin
 from buksu_framework.services.ums import UserMediaService

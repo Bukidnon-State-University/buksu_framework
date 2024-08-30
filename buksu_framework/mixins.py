@@ -50,9 +50,9 @@ class RetrieveMixin(BaseMixin):
     This class is a mixin for all services utilizing standard API endpoints.
     """
 
-    def retrieve(self, id, params=None):
+    def retrieve(self, item_id, params=None):
         merged_params = {**self.global_params, **(params or {})}
-        return self.get(id, params=merged_params)
+        return self.get(item_id, params=merged_params)
 
 
 class UpdateMixin(BaseMixin):
@@ -62,9 +62,9 @@ class UpdateMixin(BaseMixin):
     This class is a mixin for all services utilizing standard API endpoints.
     """
 
-    def update(self, id, data=None, params=None):
+    def update(self, item_id, data=None, params=None):
         merged_params = {**self.global_params, **(params or {})}
-        return self.put(id, data=data, params=merged_params)
+        return self.put(item_id, data=data, params=merged_params)
 
 
 class DeleteMixin(BaseMixin):
@@ -74,9 +74,9 @@ class DeleteMixin(BaseMixin):
     This class is a mixin for all services utilizing standard API endpoints.
     """
 
-    def remove(self, id, params=None):
+    def remove(self, item_id, params=None):
         merged_params = {**self.global_params, **(params or {})}
-        return self.delete(id, params=merged_params)
+        return self.delete(item_id, params=merged_params)
 
 
 class CRUDMixin(ListMixin, CreateMixin, RetrieveMixin, UpdateMixin, DeleteMixin):
