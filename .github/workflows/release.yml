@@ -23,7 +23,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install setuptools wheel pylint
         pip install -r requirements.txt
-        pip install -e .[dev]
+        cd buksu_framework && pip install -e .[dev] && cd ..
 
     - name: Run linter
       run: pylint **/*.py
