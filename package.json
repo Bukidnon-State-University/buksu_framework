@@ -9,7 +9,8 @@
   "scripts": {
     "test": "pytest",
     "prepare": "husky install",
-    "lint": "pylint **/*.py"
+    "lint": "pylint **/*.py",
+    "commitlint": "commitlint --edit"
   },
   "keywords": [],
   "author": "",
