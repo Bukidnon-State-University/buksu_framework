@@ -27,16 +27,17 @@ def test_request_method(mock_request, base_client):
 
     result = base_client.request("GET", "test_endpoint", params={"param": "value"})
 
-    mock_request.assert_called_once_with(
-        method="GET",
-        url="https://api.example.com/test_endpoint",
-        headers={
-            "Authorization": "Bearer realm:test_realm test_token",
-            "Content-Type": "application/json"
-        },
-        json=None,
-        params={"param": "value"}
-    )
+    mock_request.assert_called_once()
+    call_args = mock_request.call_args[1]  # Get keyword arguments
+    assert call_args['method'] == "GET"
+    assert call_args['url'] == "https://api.example.com/test_endpoint"
+    assert call_args['headers'] == {
+        "Authorization": "Bearer realm:test_realm test_token",
+        "Content-Type": "application/json"
+    }
+    assert call_args['json'] is None
+    assert call_args['params'] == {"param": "value"}
+    assert 'timeout' in call_args  # Check that timeout is present without asserting its specific value
     assert result == {"key": "value"}
 
 
