@@ -1,7 +1,7 @@
 from buksu_framework.api_client import StandardAPIClient
 from buksu_framework.mixins import BaseMixin
 
- 
+
 class BaseService(StandardAPIClient, BaseMixin):
     __test__ = False
 

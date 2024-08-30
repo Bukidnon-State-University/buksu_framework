@@ -23,7 +23,8 @@ class APIClientBase:
             url=url,
             headers=headers,
             json=data,
-            params=params
+            params=params,
+            timeout=30  # Add this line
         )
 
         response.raise_for_status()
@@ -48,17 +49,17 @@ class StandardAPIClient(APIClientBase):
         self.service = service
         self.version = version
 
-    def _format_endpoint(self, method_or_endpoint):
-        return f"/{self.service}/{self.version}/{method_or_endpoint.lstrip('/')}"
+    def _format_endpoint(self, endpoint):
+        return f"/{self.service}/{self.version}/{endpoint.lstrip('/')}"
 
-    def get(self, method_or_endpoint, params=None):
-        return super().get(self._format_endpoint(method_or_endpoint), params=params)
+    def get(self, endpoint, params=None):
+        return super().get(self._format_endpoint(endpoint), params=params)
 
-    def post(self, method_or_endpoint, data=None):
-        return super().post(self._format_endpoint(method_or_endpoint), data=data)
+    def post(self, endpoint, data=None):
+        return super().post(self._format_endpoint(endpoint), data=data)
 
-    def put(self, method_or_endpoint, data=None):
-        return super().put(self._format_endpoint(method_or_endpoint), data=data)
+    def put(self, endpoint, data=None):
+        return super().put(self._format_endpoint(endpoint), data=data)
 
-    def delete(self, method_or_endpoint, params=None):
-        return super().delete(self._format_endpoint(method_or_endpoint), params=params)
+    def delete(self, endpoint, params=None):
+        return super().delete(self._format_endpoint(endpoint), params=params)

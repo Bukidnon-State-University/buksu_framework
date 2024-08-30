@@ -1,3 +1,4 @@
+# pylint: disable=too-few-public-methods
 class BaseMixin:
     """
     Base Mixin
@@ -17,6 +18,14 @@ class BaseMixin:
         self.access_token = access_token
         self.service = service
         self.version = version or "v1"
+
+    def get_service_info(self):
+        """Return basic service information."""
+        return {
+            "service": self.service,
+            "version": self.version,
+            "realm": self.realm
+        }
 
 
 class ListMixin(BaseMixin):
