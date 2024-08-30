@@ -1,0 +1,22 @@
+{
+  "name": "buksu_framework",
+  "version": "1.0.0",
+  "description": "BukSU Framework API SDK",
+  "main": "commitlint.config.js",
+  "directories": {
+    "test": "buksu_framework/tests"
+  },
+  "scripts": {
+    "test": "pytest",
+    "prepare": "husky install",
+    "lint": "pylint **/*.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^6.0.0"
+  }
+}
