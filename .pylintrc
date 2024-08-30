@@ -13,7 +13,6 @@ disable=C0111
 
 [REPORTS]
 output-format=text
-files-output=no
 reports=yes
 evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
 
@@ -23,7 +22,7 @@ dummy-variables-rgx=_$|dummy
 
 [FORMAT]
 indent-string='    '
-max-line-length=100
+max-line-length=250
 max-module-lines=1000
 single-line-if-stmt=no
 
